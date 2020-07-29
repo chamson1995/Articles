@@ -1,0 +1,11 @@
+extends layout
+block content
+    .form-box
+        form(action="/users/login", method="post")
+            input#username(type="text", name="username" placeholder="请输入用户名")
+            input#password(type="password", name="password" placeholder="请输入密码")
+            input(type="submit", value="登陆")
+        div 已有账号?
+            a(href="/regist") 立即注册!
+            
+            

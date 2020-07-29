@@ -1,0 +1,17 @@
+extends layout
+block content
+  .list
+    -for(var i = 0; i < data.list.length; i++)
+      .row
+        span #{i}
+        span #{data.list[i].username}
+        span
+          a(href="/articles/detail?id="+ "#{data.list[i]._id}") #{data.list[i].title}
+        span #{data.list[i].createTimeZH}
+        span
+          a(href="/articles/write?id=" + "#{data.list[i]._id}" title="title") 编辑
+          a(class="del" href="/articles/delete?id=" + "#{data.list[i]._id}" title="title") 删除
+    .pages
+      -for(var p = 0;p<data.total;p++)
+        a(href="/users/index?page="+"#{ p+1 }" title="title") #{p+1}
+

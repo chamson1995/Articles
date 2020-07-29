@@ -1,0 +1,9 @@
+block bar
+    .bar
+        span #{username}
+        -if (username)
+            a(href="/articles/write", title="写文章")  写文章
+            a(href="/logout", title="退出")  退出
+        a(href="/", title="home").home
+            img(src="/images/home.png", alt="首页", srcset="")
+

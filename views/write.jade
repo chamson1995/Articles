@@ -1,0 +1,23 @@
+extends layout
+block content
+    .article
+        form(action="/articles/write", method="post")
+            input(type="hidden" name="username" value="#{doc.username}")
+            input(type="hidden" name="id" value="#{doc._id}")
+            input(type="text" name="title" placeholder="请输入文章标题" value="#{doc.title}")
+            textarea( name="content" class="xheditor")  #{doc.content}
+            -if (doc._id)
+                input(type="submit" value="修改")
+            -else
+                input(type="submit", value="发布")
+
+    script(src="/xheditor/jquery/jquery-1.4.4.min.js")
+    script(src="/xheditor/xheditor-1.2.2.min.js")
+    script(src="/xheditor/xheditor_lang/zh-cn.js")
+    script.
+        $(".xheditor").xheditor({
+            tools:'simple',
+            skin:'default',
+            upImgUrl: '/articles/upload',
+            html5Upload:false,
+        });

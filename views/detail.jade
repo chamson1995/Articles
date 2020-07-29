@@ -1,0 +1,8 @@
+extends layout
+block content
+    .detail
+        .title  #{doc.title}
+        .desc
+            span 作者:  #{doc.username}
+            span 发布时间: #{doc.createTime}
+        .content !{doc.content}
